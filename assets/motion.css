@@ -1,0 +1,64 @@
+@media (prefers-reduced-motion: no-preference) {
+  :root { --motion-ease: cubic-bezier(.22, 1, .36, 1); }
+
+  .hero-copy > * {
+    animation: motion-enter 620ms var(--motion-ease) var(--motion-delay, 0ms) backwards;
+  }
+
+  .hero-copy > :nth-child(2) { --motion-delay: 65ms; }
+  .hero-copy > :nth-child(3) { --motion-delay: 120ms; }
+  .hero-copy > :nth-child(4) { --motion-delay: 175ms; }
+  .hero-copy > :nth-child(5) { --motion-delay: 220ms; }
+
+  .hero-visual { animation: motion-photo-in 820ms var(--motion-ease) 80ms backwards; }
+
+  .has-entered {
+    animation: motion-enter 560ms var(--motion-ease) var(--motion-delay, 0ms) backwards;
+  }
+
+  .motion-stagger > :nth-child(2) { --motion-delay: 65ms; }
+  .motion-stagger > :nth-child(3) { --motion-delay: 125ms; }
+  .motion-stagger > :nth-child(4) { --motion-delay: 175ms; }
+
+  .button, .whatsapp-float {
+    transition: transform 180ms var(--motion-ease), box-shadow 180ms ease,
+      background-color 160ms ease, border-color 160ms ease;
+  }
+
+  .review { transition: transform 220ms var(--motion-ease), box-shadow 220ms ease; }
+
+  .menu-icon span { transition: transform 200ms var(--motion-ease), opacity 140ms ease; }
+
+  .menu-toggle[aria-expanded="true"] .menu-icon span:nth-child(2) {
+    visibility: visible;
+    opacity: 0;
+  }
+
+  .menu-toggle[aria-expanded="true"] + .header-links {
+    animation: motion-menu-in 200ms var(--motion-ease) backwards;
+  }
+
+  .faq-list details[open] > p { animation: motion-menu-in 240ms var(--motion-ease) backwards; }
+
+  @media (hover: hover) and (pointer: fine) {
+    .button:hover, .whatsapp-float:hover { transform: translateY(-2px); }
+    .review:hover { transform: translateY(-3px); box-shadow: 0 .45rem 1rem rgb(0 0 0 / 10%); }
+  }
+
+  .button:active, .whatsapp-float:active { transform: translateY(1px) scale(.98); }
+}
+
+@keyframes motion-enter {
+  from { opacity: .82; transform: translateY(.65rem); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes motion-photo-in {
+  from { opacity: .74; transform: translateY(.5rem) scale(.988); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes motion-menu-in {
+  from { opacity: .86; transform: translateY(-.25rem); }
+  to { opacity: 1; transform: none; }
+}
